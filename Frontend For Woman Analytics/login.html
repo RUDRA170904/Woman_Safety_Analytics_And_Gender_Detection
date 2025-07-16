@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - ProtectHER</title>
+    <link rel="icon" type="image/x-icon" href="Shield1.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles1.css">
+    <link rel="stylesheet" href="styles2.css">
+    <style>
+        /* Additional CSS for interactive text boxes */
+        .interactive-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 50px 20px; /* Add spacing around the boxes */
+        }
+
+        .interactive-box {
+            background: #ffffff;
+            padding: 20px;
+            border: 2px solid #d6b8f0; /* Light violet border */
+            border-radius: 8px;
+            width: 45%; /* Adjust width to fit side by side */
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .interactive-box:hover {
+            background: #f3e8ff; /* Light violet background on hover */
+            transform: scale(1.05);
+        }
+
+        .interactive-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #6a0dad; /* Violet color */
+        }
+
+        .interactive-text {
+            font-size: 16px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <h1 class="header-title">ProtectHER</h1>
+            <nav class="header-nav">
+                <a href="index.html" class="btn">Home</a>
+                <a href="register.html" class="btn">Register</a>
+                <a href="login.html" class="btn">Login</a>
+                <a href="contact.html" class="btn">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <!-- Login Form Section -->
+        <section class="login">
+            <div class="container">
+                <h2 class="login-title">Login to ProtectHER</h2>
+                <form id="login-form" class="login-form">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Interactive Text Boxes Section -->
+        <section class="interactive-container">
+            <div id="box1" class="interactive-box">
+                <h3 class="interactive-title">Your Safety Matters</h3>
+                <p class="interactive-text">Click here to see how we protect you from threats.</p>
+            </div>
+            <div id="box2" class="interactive-box">
+                <h3 class="interactive-title">Real-time Assistance</h3>
+                <p class="interactive-text">Click here to learn how we ensure your safety in emergencies.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>&copy; 2024 ProtectHER. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Login functionality is not yet implemented.');
+        });
+
+        // JavaScript for interactive text boxes
+        document.getElementById('box1').addEventListener('click', function() {
+            this.innerHTML = `<h3 class="interactive-title">Threat Detected!</h3>
+                              <p class="interactive-text">Our system has detected a threat. Act swiftly to secure yourself.</p>`;
+        });
+
+        document.getElementById('box2').addEventListener('click', function() {
+            this.innerHTML = `<h3 class="interactive-title">Emergency Support Activated</h3>
+                              <p class="interactive-text">We've activated emergency support. Help is on the way.</p>`;
+        });
+    </script>
+</body>
+</html>

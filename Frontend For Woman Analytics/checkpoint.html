@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProtectHER</title>
+    <link rel="icon" type="image/x-icon" href="Shield1.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Notable:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles1.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" defer></script>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #e0f7fa 0%, #b3e5fc 100%);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, #003366 0%, #1e90ff 100%);
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-title {
+            font-size: 28px;
+            margin: 0;
+        }
+
+        .header-nav .btn {
+            color: white;
+            background: linear-gradient(135deg, #1e90ff, #87cefa);
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-left: 10px;
+            font-weight: 500;
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+
+        .header-nav .btn:hover {
+            background: linear-gradient(135deg, #1c77d0, #7ec8ff);
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 100px 20px 50px;
+            background: linear-gradient(135deg, #b3e5fc 0%, #81d4fa 100%);
+            position: relative;
+            margin-top: 60px;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 500px;
+        }
+
+        .hero-title {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #003366;
+        }
+
+        .hero-text {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .hero-btn {
+            background: linear-gradient(135deg, #1e90ff, #87cefa);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .hero-btn:hover {
+            background: linear-gradient(135deg, #1c77d0, #7ec8ff);
+            transform: scale(1.05);
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 100%;
+            background: #ffffff;
+            box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            z-index: 1001;
+            padding: 20px;
+        }
+
+        .sidebar.open {
+            transform: translateX(0);
+        }
+
+        .sidebar .profile img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+
+        .sidebar .profile h3 {
+            margin-top: 10px;
+            color: #003366;
+        }
+
+        .sidebar .btn {
+            display: block;
+            background: linear-gradient(135deg, #1e90ff, #87cefa);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 4px;
+            text-align: center;
+            margin: 10px 0;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .sidebar .btn:hover {
+            background: linear-gradient(135deg, #1c77d0, #7ec8ff);
+            transform: scale(1.05);
+        }
+
+        .sidebar .btn.add {
+            background: #ff5722;
+        }
+
+        .sidebar .btn.add:hover {
+            background: #e64a19;
+        }
+
+        .camera-feed {
+            background: #f0f4f8;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: linear-gradient(135deg, #003366 0%, #1e90ff 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Selector Modal -->
+    <div id="language-modal" class="language-modal">
+        <div class="language-modal-content">
+            <h2>Select Your Language</h2>
+            <select id="language-select" class="language-select">
+                <option value="en" selected>English</option>
+                <option value="hi">हिन्दी</option>
+                <option value="gu">ગુજરાતી</option>
+            </select>
+            <button id="language-submit">Submit</button>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <h1 class="header-title">ProtectHER</h1>
+            <nav class="header-nav">
+                <a href="index.html" class="btn">Home</a>
+                <a href="register.html" class="btn">Register</a>
+                <a href="login.html" class="btn">Login</a>
+                <a href="contact.html" class="btn">Contact</a>
+                <button id="toggle-dashboard" class="btn">Dashboard</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2 class="hero-title">Empowering Women's Safety</h2>
+            <p class="hero-text">Combining advanced technology with traditional values, our platform offers cutting-edge solutions to ensure safety and well-being for women. Explore how we make a difference.</p>
+            <a href="#features" class="hero-btn">Learn More</a>
+        </div>
+        <img src="path/to/hero-image.jpg" alt="Hero Image" class="hero-img">
+        <div class="side-image left"></div>
+        <div class="side-image right"></div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="features-title">Our Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h3 class="feature-title">Real-time Monitoring</h3>
+                    <p class="feature-description">Stay informed with live updates and alerts for enhanced safety.</p>
+                </div>
+                <div class="feature-item">
+                    <h3 class="feature-title">Gender Classification</h3>
+                    <p class="feature-description">Accurate classification and tracking of individuals based on gender.</p>
+                </div>
+                <div class="feature-item">
+                    <h3 class="feature-title">Lone Woman Detection</h3>
+                    <p class="feature-description">Immediate alerts for lone women in vulnerable situations.</p>
+                </div>
+                <div class="feature-item">
+                    <h3 class="feature-title">Crowd Analytics</h3>
+                    <p class="feature-description">Analyze and respond to crowd dynamics and behavior.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>&copy; 2024 ProtectHER. All rights reserved.</p>
+    </footer>
+
+    <!-- Sidebar Section -->
+    <aside class="sidebar" id="sidebar">
+        <div class="profile">
+            <img src="path/to/profile-image.jpg" alt="Profile Picture">
+            <h3>Jane Doe</h3>
+        </div>
+        <div class="camera-feed">
+            <h4>Camera Feed</h4>
+            <!-- Camera feed content here -->
+        </div>
+        <button class="btn add">+</button>
+        <button class="btn">Start Camera</button>
+        <button class="btn">Emergency</button>
+        <button class="btn">Settings</button>
+        <button class="btn">Help</button>
+        <button class="btn">Logout</button>
+    </aside>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sidebar = document.getElementById('sidebar');
+            const toggleButton = document.getElementById('toggle-dashboard');
+
+            toggleButton.addEventListener('click', () => {
+                sidebar.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>

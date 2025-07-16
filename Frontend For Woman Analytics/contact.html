@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - ProtectHER</title>
+    <link rel="icon" type="image/x-icon" href="Shield1.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Notable:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #e0f7fa 0%, #b3e5fc 100%); /* Soft blue gradient */
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, #003366 0%, #1e90ff 100%); /* Elegant blue gradient */
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-title {
+            font-size: 28px;
+            margin: 0;
+        }
+
+        .header-nav .btn {
+            color: white;
+            background: linear-gradient(135deg, #1e90ff, #87cefa); /* Blue gradient */
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-left: 10px;
+            font-weight: 500;
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+
+        .header-nav .btn:hover {
+            background: linear-gradient(135deg, #1c77d0, #7ec8ff); /* Darker blue gradient */
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 100px 20px 50px;
+            background: linear-gradient(135deg, #b3e5fc 0%, #81d4fa 100%); /* Light blue gradient */
+            position: relative;
+            margin-top: 60px;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 500px;
+        }
+
+        .hero-title {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #003366; /* Dark blue for contrast */
+        }
+
+        .hero-text {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .hero-btn {
+            background: linear-gradient(135deg, #1e90ff, #87cefa); /* Blue gradient */
+            color: white;
+            padding: 12px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .hero-btn:hover {
+            background: linear-gradient(135deg, #1c77d0, #7ec8ff); /* Darker blue gradient on hover */
+            transform: scale(1.05);
+        }
+
+        /* Contact Form Section */
+        .contact {
+            background: #ffffff; /* White background */
+            padding: 50px 20px;
+            margin: 0 auto;
+            max-width: 800px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+            margin-top: 20px; /* Added space to account for fixed header */
+        }
+
+        .contact-title {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #003366; /* Dark blue */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+            font-size: 16px;
+            color: #333;
+        }
+
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        button {
+            background: linear-gradient(135deg, #1e90ff, #87cefa); /* Blue gradient */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #1c77d0, #7ec8ff); /* Darker blue gradient */
+            transform: scale(1.05);
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: linear-gradient(135deg, #003366 0%, #1e90ff 100%); /* Elegant blue gradient */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <h1 class="header-title">ProtectHER</h1>
+            <nav class="header-nav">
+                <a href="index.html" class="btn">Home</a>
+                <a href="register.html" class="btn">Register</a>
+                <a href="login.html" class="btn">Login</a>
+                <a href="contact.html" class="btn">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2 class="hero-title">Get in Touch</h2>
+            <p class="hero-text">We’d love to hear from you! Whether you have a question, feedback, or just want to say hello, feel free to contact us.</p>
+            <a href="#contact-form" class="hero-btn">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact-form" class="contact">
+        <h2 class="contact-title">Contact Us</h2>
+        <form action="/submit_contact" method="post">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit">Send Message</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>&copy; 2024 ProtectHER. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

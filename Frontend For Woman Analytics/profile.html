@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #f36f6f;
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-title {
+            font-size: 28px;
+            margin: 0;
+        }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-nav .btn {
+            color: white;
+            background-color: #e40548;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-left: 10px;
+            font-weight: 500;
+        }
+
+        .header-nav .btn:hover {
+            background-color: #5d2b3b;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .profile-header {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-top: 80px; /* Offset for the fixed header */
+        }
+
+        .profile-header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .profile-content {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+
+        .profile-content label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .profile-content input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .profile-content button {
+            background-color: #f36f6f;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .profile-content button:hover {
+            background-color: #c0043f;
+        }
+
+        .footer {
+            background-color: #f36f6f;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <h1 class="header-title">ProtectHER</h1>
+            <nav class="header-nav">
+                <a href="index.html" class="btn">Home</a>
+                <a href="register.html" class="btn">Register</a>
+                <a href="login.html" class="btn">Login</a>
+                <a href="profile.html" class="btn">Profile</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Profile Section -->
+    <div class="container">
+        <div class="profile-header">
+            <h1>User Profile</h1>
+        </div>
+
+        <div class="profile-content">
+            <form action="update-profile.php" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="John Doe">
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="john.doe@example.com">
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter new password">
+
+                <button type="submit">Update Profile</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 ProtectHER. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
